@@ -4,3 +4,11 @@ hl.monitor({
     position = "0x0",
     scale    = 1,
 })
+
+-- Any other screen (a new monitor, or the nested test window)
+hl.monitor({
+    output   = "",
+    mode     = "preferred",
+    position = "auto",
+    scale    = 1,
+})

@@ -3,7 +3,6 @@ local colors = {
     accent     = "rgba(89b4faee)",
     accent_alt = "rgba(cba6f7ee)",
     inactive   = "rgba(45475a88)",
-    shadow     = "rgba(00000077)",
     background = "rgb(11111b)",
 }
 
@@ -35,10 +34,7 @@ hl.config({
         },
 
         shadow = {
-            enabled      = true,
-            range        = 20,
-            render_power = 3,
-            color        = colors.shadow,
+            enabled = false,
         },
     },
 
