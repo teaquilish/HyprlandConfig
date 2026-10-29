@@ -10,8 +10,8 @@ local held  = { locked = true, repeating = true }
 
 -- Apps
 bind("RETURN", hl.dsp.exec_cmd(terminal))
-bind("F",      hl.dsp.exec_cmd("firefox"))
-bind("E",      hl.dsp.exec_cmd("nautilus"))
+bind("F",      hl.dsp.exec_cmd("zen-browser"))
+bind("E",      hl.dsp.exec_cmd("dolphin"))
 bind("D",      hl.dsp.exec_cmd("fuzzel"))
 bind("C",      hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"))
 bind("V",      hl.dsp.exec_cmd("pavucontrol"))
