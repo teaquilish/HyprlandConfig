@@ -17,6 +17,9 @@ bind("C",      hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode
 bind("V",      hl.dsp.exec_cmd("pavucontrol"))
 bind("R",      hl.dsp.reload_config())
 
+-- Notifications: show missed and new ones, press again to hide
+bind("N", hl.dsp.exec_cmd("makoctl mode -t show"))
+
 -- Windows
 bind("Q",         hl.dsp.window.close())
 bind("T",         hl.dsp.window.float({ action = "toggle" }))

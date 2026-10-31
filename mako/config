@@ -1,0 +1,27 @@
+# mako reads "key=value" literally, so no spaces around = (they break parsing)
+
+font=Google Sans 11
+anchor=top-right
+margin=8
+padding=10
+border-size=2
+border-radius=12
+
+# Placeholder colors until the shared palette exists
+background-color=#11111bdd
+border-color=#89b4faee
+text-color=#cdd6f4
+
+# Hidden by default and never expire, so missed ones wait for SUPER + N
+invisible=1
+ignore-timeout=1
+default-timeout=0
+
+# SUPER + N toggles this mode: show everything, new ones close after 5 s
+[mode=show]
+invisible=0
+default-timeout=5000
+
+# The "(N more)" line also matches the hidden setting above
+[mode=show hidden]
+invisible=0
