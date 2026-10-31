@@ -52,7 +52,7 @@ hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     media)
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   media)
 
--- Lock (handled by hypridle + hyprlock once they're set up in Phase 2)
+-- Lock: hypridle hears this and starts the Quickshell lock screen
 bind("L", hl.dsp.exec_cmd("loginctl lock-session"), media)
 hl.bind("XF86PowerOff", hl.dsp.exec_cmd("loginctl lock-session"), media)
 

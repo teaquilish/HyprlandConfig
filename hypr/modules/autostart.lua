@@ -2,6 +2,9 @@ hl.on("hyprland.start", function()
     -- Wallpaper (reads hyprpaper.conf next to hyprland.lua)
     hl.exec_cmd("hyprpaper")
 
+    -- Idle: lock and screen off (reads hypridle.conf next to hyprland.lua)
+    hl.exec_cmd("hypridle")
+
     -- Clipboard history for SUPER + C
     hl.exec_cmd("wl-paste --type text --watch cliphist store")
     hl.exec_cmd("wl-paste --type image --watch cliphist store")
