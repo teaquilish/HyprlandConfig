@@ -19,11 +19,11 @@ PanelWindow {
     }
 
     // Extra room under the islands so the shadow isn't cut off
-    implicitHeight: Theme.barGap + Theme.barHeight + 8
+    implicitHeight: Sizes.gap + Sizes.barHeight + Sizes.px(8)
 
     // Reserve only the gap and the islands. Hyprland adds gaps_out on top,
     // so windows start 8 px below the islands.
-    exclusiveZone: Theme.barGap + Theme.barHeight
+    exclusiveZone: Sizes.gap + Sizes.barHeight
 
     WlrLayershell.namespace: "bar"
 
@@ -36,8 +36,8 @@ PanelWindow {
 
     Island {
         id: leftIsland
-        x:     Theme.barGap
-        width: 5 + archLogo.width + 6 + workspaces.implicitWidth + 6
+        x:     Sizes.gap
+        width: Sizes.px(5) + archLogo.width + Sizes.px(6) + workspaces.implicitWidth + Sizes.px(6)
 
         Behavior on width {
             NumberAnimation {
@@ -53,13 +53,13 @@ PanelWindow {
 
             ArchLogo {
                 id: archLogo
-                x: 5
+                x: Sizes.px(5)
                 anchors.verticalCenter: parent.verticalCenter
             }
 
             Workspaces {
                 id: workspaces
-                x:      archLogo.x + archLogo.width + 6
+                x:      archLogo.x + archLogo.width + Sizes.px(6)
                 screen: root.modelData
                 anchors.verticalCenter: parent.verticalCenter
             }
@@ -68,13 +68,52 @@ PanelWindow {
 
     Island {
         id: centerIsland
-        x:     (parent.width - width) / 2
-        width: 312
+        x:     Math.round((parent.width - width) / 2)
+        width: 2 * Sizes.px(10) + Math.ceil(centerRow.implicitWidth)
+
+        Behavior on width {
+            NumberAnimation {
+                duration:    250
+                easing.type: Easing.OutCubic
+            }
+        }
+
+        Item {
+            anchors.fill: parent
+            clip:         true
+
+            // Sits a pixel high to leave room for the day line
+            Row {
+                id: centerRow
+                x:       Sizes.px(10)
+                spacing: Sizes.px(10)
+                anchors.verticalCenter:       parent.verticalCenter
+                anchors.verticalCenterOffset: -Sizes.px(1)
+
+                Clock {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                DateLabel {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                // Weather goes here
+            }
+
+            // Inset by the corner radius so it stays inside the rounded edge
+            DayLine {
+                x:        Sizes.islandRadius
+                y:        parent.height - height - Sizes.px(2)
+                width:    parent.width - 2 * Sizes.islandRadius
+                progress: Time.dayProgress
+            }
+        }
     }
 
     Island {
         id: rightIsland
-        x:     parent.width - width - Theme.barGap
-        width: 388
+        x:     parent.width - width - Sizes.gap
+        width: Sizes.px(388)
     }
 }

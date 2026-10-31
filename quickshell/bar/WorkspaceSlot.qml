@@ -17,12 +17,12 @@ Item {
     readonly property bool pacman:   Settings.workspaceStyle === "pacman"
     readonly property bool arcade:   Settings.pacmanColors === "arcade"
     // Hidden while Pac-Man is on top of it
-    readonly property bool covered:  pacman && Math.abs(pacmanDx) < 8
+    readonly property bool covered:  pacman && Math.abs(pacmanDx) < Sizes.scale * 8
 
     readonly property var arcadeGhosts: [Theme.arcadeRed, Theme.arcadePink, Theme.arcadeCyan, Theme.arcadeOrange]
 
-    width:  22
-    height: 22
+    width:  Sizes.slot
+    height: Sizes.slot
 
     // Fades in when the row grows
     opacity: 0
@@ -34,7 +34,7 @@ Item {
         anchors.centerIn: parent
         visible: !root.pacman ? !root.active
                :                !root.covered && !root.occupied && !root.urgent
-        width:   root.pacman ? 5 : 6
+        width:   root.pacman ? Sizes.px(5) : Sizes.evenPx(6)
         height:  width
         radius:  width / 2
         color:   root.pacman            ? Theme.surface

@@ -11,4 +11,6 @@ Singleton {
     readonly property string pacmanColors:    "muted"
     // Minutes idle before locking, 0 = never
     readonly property int    autoLockMinutes: 15
+    // Size of the whole bar, 1 = 30 px tall islands
+    readonly property real   barScale:        34 / 30
 }

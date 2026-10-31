@@ -9,7 +9,7 @@ Item {
 
     required property var screen
 
-    readonly property int    spacing:  22
+    readonly property int    spacing:  Sizes.slot
     readonly property var    monitor:  Hyprland.monitorFor(root.screen)
     readonly property int    activeId: monitor && monitor.activeWorkspace ? monitor.activeWorkspace.id : 0
     readonly property bool   pacman:   Settings.workspaceStyle === "pacman"
@@ -106,8 +106,8 @@ Item {
         visible: !root.pacman && root.activeId >= 1 && root.activeId <= 10
         x:       centerX - width / 2
         y:       (parent.height - height) / 2
-        width:   30 + Math.min(12, Math.abs(root.targetX - centerX) / 2)
-        height:  10
+        width:   Sizes.evenPx(30) + Math.min(Sizes.px(12), Math.abs(root.targetX - centerX) / 2)
+        height:  Sizes.evenPx(10)
         radius:  height / 2
 
         gradient: Gradient {

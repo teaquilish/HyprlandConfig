@@ -4,13 +4,13 @@ import qs.common
 
 // Arch logo in a gradient circle
 Item {
-    width:  20
-    height: 20
+    width:  Sizes.evenPx(20)
+    height: Sizes.evenPx(20)
 
     RectangularShadow {
         anchors.fill: parent
         radius:       width / 2
-        blur:         5
+        blur:         Sizes.px(5)
         color:        Qt.rgba(Theme.accent.r, Theme.accent.g, Theme.accent.b, 0.35)
     }
 
@@ -31,6 +31,6 @@ Item {
         text:           "\uf303"
         color:          Theme.background
         font.family:    Theme.icons
-        font.pixelSize: 13
+        font.pixelSize: Sizes.px(13)
     }
 }

@@ -32,10 +32,14 @@ Singleton {
     readonly property color islandBorder: Qt.rgba(accent.r, accent.g, accent.b, 0.18)
     readonly property color shadow:       Qt.rgba(0, 0, 0, 0.45)
 
-    // Bar sizes, in pixels. gap matches gaps_out in look.lua.
-    readonly property int barHeight:    30
-    readonly property int barGap:       8
-    readonly property int islandRadius: barHeight / 2
+    // Thin progress line under the center island
+    readonly property color track: Qt.rgba(surface.r, surface.g, surface.b, 0.35)
+
+    // Bar sizes, in pixels. barHeight is the base the bar scales by
+    // Settings.barScale (see bar/Sizes.qml). gap matches gaps_out in
+    // look.lua and stays fixed.
+    readonly property int barHeight: 30
+    readonly property int barGap:    8
 
     readonly property string font:  "Google Sans"
     readonly property string icons: "JetBrainsMono Nerd Font"
