@@ -37,7 +37,33 @@ PanelWindow {
     Island {
         id: leftIsland
         x:     Theme.barGap
-        width: 246
+        width: 5 + archLogo.width + 6 + workspaces.implicitWidth + 6
+
+        Behavior on width {
+            NumberAnimation {
+                duration:    250
+                easing.type: Easing.OutCubic
+            }
+        }
+
+        // Hides a new slot until the island has grown around it
+        Item {
+            anchors.fill: parent
+            clip:         true
+
+            ArchLogo {
+                id: archLogo
+                x: 5
+                anchors.verticalCenter: parent.verticalCenter
+            }
+
+            Workspaces {
+                id: workspaces
+                x:      archLogo.x + archLogo.width + 6
+                screen: root.modelData
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
     }
 
     Island {

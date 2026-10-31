@@ -13,6 +13,15 @@ Singleton {
     readonly property color accentAlt:  "#cba6f7"
     readonly property color red:        "#f38ba8"
     readonly property color yellow:     "#f9e2af"
+    readonly property color surface:    "#45475a"
+
+    // Arcade Pac-Man ghosts and pupils. Fixed colors on purpose, they
+    // don't follow the palette.
+    readonly property color arcadeRed:    "#ff0000"
+    readonly property color arcadePink:   "#ffb8ff"
+    readonly property color arcadeCyan:   "#00ffff"
+    readonly property color arcadeOrange: "#ffb852"
+    readonly property color arcadeBlue:   "#2121de"
 
     // Frosted panels: clock face, time, password box
     readonly property color glass:       Qt.rgba(0.07, 0.07, 0.11, 0.45)
