@@ -1,4 +1,5 @@
 import QtQuick
+import qs.common
 
 Rectangle {
     id: root

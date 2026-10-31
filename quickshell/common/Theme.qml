@@ -3,11 +3,12 @@ pragma Singleton
 import QtQuick
 import Quickshell
 
-// Placeholder colors until the shared palette exists (same as look.lua)
+// Shared palette for the lock screen and the bar (same colors as look.lua)
 Singleton {
     readonly property color background: "#11111b"
     readonly property color text:       "#cdd6f4"
     readonly property color subtext:    "#a6adc8"
+    readonly property color muted:      "#6c7086"
     readonly property color accent:     "#89b4fa"
     readonly property color accentAlt:  "#cba6f7"
     readonly property color red:        "#f38ba8"
@@ -16,6 +17,16 @@ Singleton {
     // Frosted panels: clock face, time, password box
     readonly property color glass:       Qt.rgba(0.07, 0.07, 0.11, 0.45)
     readonly property color glassBorder: Qt.rgba(1, 1, 1, 0.18)
+
+    // Bar islands: solid, no blur
+    readonly property color island:       background
+    readonly property color islandBorder: Qt.rgba(accent.r, accent.g, accent.b, 0.18)
+    readonly property color shadow:       Qt.rgba(0, 0, 0, 0.45)
+
+    // Bar sizes, in pixels. gap matches gaps_out in look.lua.
+    readonly property int barHeight:    30
+    readonly property int barGap:       8
+    readonly property int islandRadius: barHeight / 2
 
     readonly property string font:  "Google Sans"
     readonly property string icons: "JetBrainsMono Nerd Font"

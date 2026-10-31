@@ -1,4 +1,5 @@
 import QtQuick
+import qs.common
 
 // Round clock with hour, minute and second hands
 Item {
