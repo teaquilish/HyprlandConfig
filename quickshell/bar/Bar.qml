@@ -98,7 +98,9 @@ PanelWindow {
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
-                // Weather goes here
+                WeatherLabel {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
 
             // Inset by the corner radius so it stays inside the rounded edge

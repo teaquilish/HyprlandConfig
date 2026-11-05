@@ -13,4 +13,6 @@ Singleton {
     readonly property int    autoLockMinutes: 15
     // Size of the whole bar, 1 = 30 px tall islands
     readonly property real   barScale:        34 / 30
+    // City name only, e.g. "Berlin" (not "Berlin, Germany"). "" = guess from the IP address
+    readonly property string weatherCity:     ""
 }
