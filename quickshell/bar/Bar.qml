@@ -101,14 +101,27 @@ PanelWindow {
                 WeatherLabel {
                     anchors.verticalCenter: parent.verticalCenter
                 }
+
+                // After the weather, fades in while music plays. Hidden
+                // (and its animations stopped) when nothing plays.
+                MusicRow {
+                    anchors.verticalCenter: parent.verticalCenter
+                    opacity: Music.shown ? 1 : 0
+                    visible: Music.shown || opacity > 0
+
+                    Behavior on opacity {
+                        NumberAnimation { duration: 200 }
+                    }
+                }
             }
 
-            // Inset by the corner radius so it stays inside the rounded edge
+            // Inset by the corner radius so it stays inside the rounded edge.
+            // Shows the track's progress while music is up, the day's otherwise.
             DayLine {
                 x:        Sizes.islandRadius
                 y:        parent.height - height - Sizes.px(2)
                 width:    parent.width - 2 * Sizes.islandRadius
-                progress: Time.dayProgress
+                progress: Music.shown ? Music.progress : Time.dayProgress
             }
         }
     }
