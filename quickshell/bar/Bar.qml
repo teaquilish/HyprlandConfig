@@ -129,6 +129,34 @@ PanelWindow {
     Island {
         id: rightIsland
         x:     parent.width - width - Sizes.gap
-        width: Sizes.px(388)
+        width: 2 * Sizes.px(10) + Math.ceil(rightRow.implicitWidth)
+
+        Behavior on width {
+            NumberAnimation {
+                duration:    250
+                easing.type: Easing.OutCubic
+            }
+        }
+
+        Item {
+            anchors.fill: parent
+            clip:         true
+
+            Row {
+                id: rightRow
+                x:       Sizes.px(10)
+                height:  parent.height
+                spacing: Sizes.px(10)
+
+                Tray {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                KeyboardLayout {
+                    anchors.verticalCenter: parent.verticalCenter
+                    height: parent.height - 2 * Sizes.px(4)
+                }
+            }
+        }
     }
 }
