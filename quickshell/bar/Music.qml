@@ -16,7 +16,7 @@ Singleton {
     readonly property string title:    shown ? player.trackTitle.trim() : ""
     readonly property string artist:   shown ? player.trackArtist.trim() : ""
     // Part of the track played, 0 to 1. 0 when the length is unknown.
-    readonly property real   progress: shown && player.length > 0
+    readonly property real   progress: shown && player.lengthSupported && player.length > 0
                                        ? Math.max(0, Math.min(1, player.position / player.length))
                                        : 0
 
@@ -38,8 +38,9 @@ Singleton {
     // only computes it when read. Nudging positionChanged once a second is
     // the polling its docs suggest; it runs only while something plays.
     Timer {
-        interval:    1000
-        repeat:      true
+        interval:         1000
+        repeat:           true
+        triggeredOnStart: true
         running:     root.playing && root.player.positionSupported
         onTriggered: root.player.positionChanged()
     }
