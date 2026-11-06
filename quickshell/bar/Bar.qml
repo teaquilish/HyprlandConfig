@@ -156,6 +156,26 @@ PanelWindow {
                     anchors.verticalCenter: parent.verticalCenter
                     height: parent.height - 2 * Sizes.px(4)
                 }
+
+                WifiIcon {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                BluetoothIcon {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                VolumeControl {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                BellIcon {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                PowerIcon {
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
         }
     }
